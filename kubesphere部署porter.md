@@ -121,12 +121,13 @@ ACL加入放行端口
 
 访问成功
 
-![img](C:\Users\Administrator\AppData\Local\YNote\data\qq73BCA5A9284F789666FEA2831FE684C7\d5f76f77e7194c4d9276a6d1609645f4\clipboard.png)
+![img](https://raw.githubusercontent.com/misteruly/images/master/20201016171457.png)
 
 添加dns主机
 
-![img](C:\Users\Administrator\AppData\Local\YNote\data\qq73BCA5A9284F789666FEA2831FE684C7\698c58c503594ddbb948819a5a250881\clipboard.png)
+![img](https://raw.githubusercontent.com/misteruly/images/master/20201016171458.png)
 
 使用自己域名访问
 
-![img](C:/Users/Administrator/AppData/Local/YNote/data/qq73BCA5A9284F789666FEA2831FE684C7/961294d03f1e4986a7bcb1425f4e6d52/clipboard.png)
+![img](https://raw.githubusercontent.com/misteruly/images/master/20201016171427.png)
+
