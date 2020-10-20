@@ -18,7 +18,7 @@ node2                     4                        16GB                  50GB
 
 
 
-![image-20201020094441478](C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20201020094441478.png)
+![image-20201020094441478](http://image.z5689.com/blog/20201020144552.png)
 
 每台主机都需要安装依赖软件
 
@@ -44,7 +44,7 @@ openssl req \
 
 生成证书时，需填写对应域名（该域名可自由设定）
 
-![image-20201020100620990](C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20201020100620990.png)
+![image-20201020100620990](http://image.z5689.com/blog/20201020144553.png)
 
 启动docker registry服务
 
@@ -71,7 +71,7 @@ $ docker run -d \
 $ echo "192.168.0.2    dockerhub.kubesphere.local"   >>  /etc/hosts
 ```
 
-![image-20201020101405155](C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20201020101405155.png)
+![image-20201020101405155](http://image.z5689.com/blog/20201020144554.png)
 
 拷贝证书到指定目录，使docker信任该证书（该路径与证书域名有关，请按实际域名创建证书拷贝路径）
 
@@ -84,11 +84,11 @@ $ cp certs/domain.crt  /etc/docker/certs.d/dockerhub.kubesphere.local/ca.crt
 
 镜像上传成功
 
-![image-20201020102120727](C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20201020102120727.png)
+![image-20201020102120727](http://image.z5689.com/blog/20201020144555.png)
 
 下载镜像成功 (node2)
 
-![image-20201020102909853](C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20201020102909853.png)
+![image-20201020102909853](http://image.z5689.com/blog/20201020144556.png)
 
 
 
@@ -108,7 +108,7 @@ $ curl -Ok https://kubesphere-installer.pek3b.qingstor.com/offline/v3.0.0/kubesp
 
 安装包解压后进入`kubesphere-all-v3.0.0-offline-linux-amd64`
 
-![image-20201020103855129](C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20201020103855129.png)
+![image-20201020103855129](http://image.z5689.com/blog/20201020144557.png)
 
 生成配置文件config-sample.yaml
 
@@ -253,7 +253,7 @@ spec:
 
 进入`kubesphere-all-v3.0.0-offline-linux-amd64/kubesphere-images-v3.0.0`
 
-![image-20201020105923369](C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20201020105923369.png)
+![image-20201020105923369](http://image.z5689.com/blog/20201020144558.png)
 
 ```
 $ ./push-images.sh  dockerhub.kubesphere.local
@@ -269,30 +269,30 @@ $ ./kk create cluster -f config-sample.yaml
 
 输入yes
 
-![image-20201020135834106](C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20201020135834106.png)
+![image-20201020135834106](http://image.z5689.com/blog/20201020144559.png)
 
 然后就是持续的安装步骤
 
 集群安装成功
 
-![image-20201020142113074](C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20201020142113074.png)
+![image-20201020142113074](http://image.z5689.com/blog/20201020144600.png)
 
-![image-20201020144302279](C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20201020144302279.png)
+![image-20201020144302279](http://image.z5689.com/blog/20201020144601.png)
 
 访问kubesphere，需要ACL 防火墙放通30880端口
 
 ACL放通30880端口
 
-![image-20201020142217193](C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20201020142217193.png)
+![image-20201020142217193](http://image.z5689.com/blog/20201020144602.png)
 
 
 
 防火墙放通30880端口
 
-![image-20201020142413590](C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20201020142413590.png)
+![image-20201020142413590](http://image.z5689.com/blog/20201020144603.png)
 
 
 
 访问kubesphere，以admin用户登录
 
-![image-20201020142555566](C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20201020142555566.png)
+![image-20201020142555566](http://image.z5689.com/blog/20201020144604.png)
