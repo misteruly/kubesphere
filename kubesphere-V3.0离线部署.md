@@ -18,7 +18,7 @@ node2                     4                        16GB                  50GB
 
 
 
-![image-20201020094441478](http://image.z5689.com/blog/20201020144552.png)
+![image-20201020094441478](http://image.z5689.com/blog/20201020155539.png)
 
 每台主机都需要安装依赖软件
 
