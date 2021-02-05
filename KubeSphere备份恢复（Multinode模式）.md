@@ -74,7 +74,17 @@ Centos7环境
 
 ####  2.集群A，集群B部署Velero组件
 
-集群A部署velero
+Velero备份原理图
+
+![image-20210205172911626](http://image.z5689.com/blog/image-20210205172911626.png)
+
+1. 本地 `Velero` 客户端发送备份指令。
+2. `Kubernetes` 集群内就会创建一个 `Backup` 对象。
+3. `BackupController` 监测 `Backup` 对象并开始备份过程。
+4. `BackupController` 会向 `API Server` 查询相关数据。
+5. `BackupController` 将查询到的数据备份到远端的对象存储。
+
+集群A部署Velero
 
 ```
 #wget https://github.com/vmware-tanzu/velero/releases/download/v1.5.2/velero-v1.5.2-linux-amd64.tar.gz
@@ -102,7 +112,7 @@ EOF
 
 
 
-安装velero
+安装Velero
 
 ```
 # velero install \
@@ -150,7 +160,7 @@ EOF
 
  
 
-**集群B部署velero也和上述集群A部署velero一样**
+**集群B部署Velero也和上述集群A部署Velero一样**
 
 **注意：集群B需要提前安装好kubesphere所需依赖组件**
 
