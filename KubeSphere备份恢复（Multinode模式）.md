@@ -2,13 +2,13 @@
 
 ## 目的
 
-备份kubesphere集群，在另外多台主机上恢复kubeSphere集群
+备份kubesphere集群，在另外多台主机上恢复kubesphere集群
 
  
 
 ## 前提
 
-![image-20210205144303675](C:\Users\lanp\AppData\Roaming\Typora\typora-user-images\image-20210205144303675.png)
+![image-20210205150424480](http://image.z5689.com/blog/image-20210205150424480.png)
 
 l 集群A(master,node1.node2)：已经部署KubeSphere-v3.0.0
 
@@ -58,23 +58,23 @@ l Centos7环境
 
 安装完成
 
-![img](file:///C:/Users/lanp/AppData/Local/Temp/msohtmlclip1/01/clip_image002.jpg)
+![img](http://image.z5689.com/blog/clip_image002.jpg)
 
  
 
 使用access key和secret key登录
 
-![img](file:///C:/Users/lanp/AppData/Local/Temp/msohtmlclip1/01/clip_image004.jpg)
+![img](http://image.z5689.com/blog/clip_image004.jpg)
 
 设置bucket
 
-![img](file:///C:/Users/lanp/AppData/Local/Temp/msohtmlclip1/01/clip_image006.jpg)
+![img](http://image.z5689.com/blog/clip_image006.jpg)
 
 写入backup，enter键提交，velero会用到这个bucket
 
-![img](file:///C:/Users/lanp/AppData/Local/Temp/msohtmlclip1/01/clip_image008.jpg)
+![img](http://image.z5689.com/blog/clip_image008.jpg)
 
-![img](file:///C:/Users/lanp/AppData/Local/Temp/msohtmlclip1/01/clip_image010.jpg)
+![img](http://image.z5689.com/blog/clip_image010.jpg)
 
  
 
@@ -146,7 +146,7 @@ EOF
 
 安装完成
 
-![img](file:///C:/Users/lanp/AppData/Local/Temp/msohtmlclip1/01/clip_image012.jpg)
+![img](http://image.z5689.com/blog/clip_image012.jpg)
 
  
 
@@ -162,33 +162,33 @@ EOF
 
 登录kubesphere
 
-![img](file:///C:/Users/lanp/AppData/Local/Temp/msohtmlclip1/01/clip_image014.jpg)
+![img](http://image.z5689.com/blog/clip_image014.jpg)
 
  
 
 新建工作空间test
 
-![img](file:///C:/Users/lanp/AppData/Local/Temp/msohtmlclip1/01/clip_image016.jpg)
+![img](http://image.z5689.com/blog/clip_image016.jpg)
 
-![img](file:///C:/Users/lanp/AppData/Local/Temp/msohtmlclip1/01/clip_image018.jpg)
+![img](http://image.z5689.com/blog/clip_image018.jpg)
 
-![img](file:///C:/Users/lanp/AppData/Local/Temp/msohtmlclip1/01/clip_image020.jpg)
+![img](http://image.z5689.com/blog/clip_image020.jpg)
 
-![img](file:///C:/Users/lanp/AppData/Local/Temp/msohtmlclip1/01/clip_image022.jpg)
+![img](http://image.z5689.com/blog/clip_image022.jpg)
 
  
 
 创建项目（名称空间）
 
-![img](file:///C:/Users/lanp/AppData/Local/Temp/msohtmlclip1/01/clip_image024.jpg)
+![img](http://image.z5689.com/blog/clip_image024.jpg)
 
-![img](file:///C:/Users/lanp/AppData/Local/Temp/msohtmlclip1/01/clip_image026.jpg)
+![img](http://image.z5689.com/blog/clip_image026.jpg)
 
  
 
 创建完成
 
-![img](file:///C:/Users/lanp/AppData/Local/Temp/msohtmlclip1/01/clip_image028.jpg)
+![img](http://image.z5689.com/blog/clip_image028.jpg)
 
  
 
@@ -202,13 +202,13 @@ EOF
 
 安装完成
 
-![img](file:///C:/Users/lanp/AppData/Local/Temp/msohtmlclip1/01/clip_image030.jpg)
+![img](http://image.z5689.com/blog/clip_image030.jpg)
 
  
 
 对外服务端口是30086
 
-![img](file:///C:/Users/lanp/AppData/Local/Temp/msohtmlclip1/01/clip_image032.jpg)
+![img](http://image.z5689.com/blog/clip_image032.jpg)
 
  
 
@@ -218,25 +218,25 @@ EOF
 
 账号 admin  密码 Pass@Word
 
-![img](file:///C:/Users/lanp/AppData/Local/Temp/msohtmlclip1/01/clip_image034.jpg)
+![img](http://image.z5689.com/blog/clip_image034.jpg)
 
  
 
 添加一遍文档已示标记
 
-![img](file:///C:/Users/lanp/AppData/Local/Temp/msohtmlclip1/01/clip_image036.jpg)
+![img](http://image.z5689.com/blog/clip_image036.jpg)
 
  
 
 写好就pulish
 
-![img](file:///C:/Users/lanp/AppData/Local/Temp/msohtmlclip1/01/clip_image038.jpg)
+![img](http://image.z5689.com/blog/clip_image038.jpg)
 
  
 
 我们看到多了一片test文档
 
-![img](file:///C:/Users/lanp/AppData/Local/Temp/msohtmlclip1/01/clip_image040.jpg)
+![img](http://image.z5689.com/blog/clip_image040.jpg)
 
  
 
@@ -276,7 +276,7 @@ kubectl taint nodes master node-role.kubernetes.io/master:NoSchedule-
 
  
 
-![img](file:///C:/Users/lanp/AppData/Local/Temp/msohtmlclip1/01/clip_image042.jpg)
+![img](http://image.z5689.com/blog/clip_image042.jpg)
 
  
 
@@ -522,13 +522,13 @@ Volumes:
 
 备份全部完成
 
-![img](file:///C:/Users/lanp/AppData/Local/Temp/msohtmlclip1/01/clip_image044.jpg)
+![img](http://image.z5689.com/blog/clip_image044.jpg)
 
  
 
 minio已经生成备份数据
 
-![img](file:///C:/Users/lanp/AppData/Local/Temp/msohtmlclip1/01/clip_image046.jpg)
+![img](http://image.z5689.com/blog/clip_image046.jpg)
 
  
 
@@ -546,13 +546,13 @@ minio已经生成备份数据
 
 可以看到备份数据
 
-![img](file:///C:/Users/lanp/AppData/Local/Temp/msohtmlclip1/01/clip_image048.jpg)
+![img](http://image.z5689.com/blog/clip_image048.jpg)
 
  
 
 查看所有pod信息
 
-\#kubectl get pod -A -o wide![img](file:///C:/Users/lanp/AppData/Local/Temp/msohtmlclip1/01/clip_image050.jpg)
+\#kubectl get pod -A -o wide![img](http://image.z5689.com/blog/clip_image050.jpg)
 
 还原kube-system名称空间的数据
 
@@ -562,7 +562,7 @@ minio已经生成备份数据
 
 增加了openebs，metrics，snapshot的pod
 
-![img](file:///C:/Users/lanp/AppData/Local/Temp/msohtmlclip1/01/clip_image052.jpg)
+![img](http://image.z5689.com/blog/clip_image052.jpg)
 
 创建存储对象
 
@@ -570,7 +570,7 @@ minio已经生成备份数据
 
 \# kubectl get sc
 
-![img](file:///C:/Users/lanp/AppData/Local/Temp/msohtmlclip1/01/clip_image054.jpg)
+![img](http://image.z5689.com/blog/clip_image054.jpg)
 
  
 
@@ -586,7 +586,7 @@ minio已经生成备份数据
 
  
 
-![img](file:///C:/Users/lanp/AppData/Local/Temp/msohtmlclip1/01/clip_image056.jpg)
+![img](http://image.z5689.com/blog/clip_image056.jpg)
 
  
 
@@ -596,7 +596,7 @@ minio已经生成备份数据
 
 \# kubectl get pod -n kubesphere-controls-system
 
-![img](file:///C:/Users/lanp/AppData/Local/Temp/msohtmlclip1/01/clip_image058.jpg)
+![img](http://image.z5689.com/blog/clip_image058.jpg)
 
  
 
@@ -606,7 +606,7 @@ minio已经生成备份数据
 
 \# kubectl get pod -n kubesphere-monitoring-system
 
-![img](file:///C:/Users/lanp/AppData/Local/Temp/msohtmlclip1/01/clip_image060.jpg)
+![img](http://image.z5689.com/blog/clip_image060.jpg)
 
  
 
@@ -616,17 +616,17 @@ minio已经生成备份数据
 
 \# kubectl get pod -n test
 
-![img](file:///C:/Users/lanp/AppData/Local/Temp/msohtmlclip1/01/clip_image062.jpg)
+![img](http://image.z5689.com/blog/clip_image062.jpg)
 
  
 
 所有名称空间的pod全部恢复完成
 
-![img](file:///C:/Users/lanp/AppData/Local/Temp/msohtmlclip1/01/clip_image064.jpg)
+![img](http://image.z5689.com/blog/clip_image064.jpg)
 
 PV全部绑定成功
 
-![img](file:///C:/Users/lanp/AppData/Local/Temp/msohtmlclip1/01/clip_image066.jpg)
+![img](http://image.z5689.com/blog/clip_image066.jpg)
 
  
 
@@ -634,35 +634,35 @@ PV全部绑定成功
 
 登录集群B kubesphere，验证服务
 
-![img](file:///C:/Users/lanp/AppData/Local/Temp/msohtmlclip1/01/clip_image068.jpg)
+![img](http://image.z5689.com/blog/clip_image068.jpg)
 
  
 
 我们看到只有一个工作空间，因为这部分关联数据存储在etcd
 
-![img](file:///C:/Users/lanp/AppData/Local/Temp/msohtmlclip1/01/clip_image070.jpg)
+![img](http://image.z5689.com/blog/clip_image070.jpg)
 
 单独创建test工作空间
 
-![img](file:///C:/Users/lanp/AppData/Local/Temp/msohtmlclip1/01/clip_image072.jpg)
+![img](http://image.z5689.com/blog/clip_image072.jpg)
 
  
 
-![img](file:///C:/Users/lanp/AppData/Local/Temp/msohtmlclip1/01/clip_image074.jpg)
+![img](http://image.z5689.com/blog/clip_image074.jpg)
 
  
 
-![img](file:///C:/Users/lanp/AppData/Local/Temp/msohtmlclip1/01/clip_image076.jpg)
+![img](http://image.z5689.com/blog/clip_image076.jpg)
 
 直接对应上了项目(名称空间)test，名称空间含有工作空间的标签，所以自动关联上了
 
-![img](file:///C:/Users/lanp/AppData/Local/Temp/msohtmlclip1/01/clip_image078.jpg)
+![img](http://image.z5689.com/blog/clip_image078.jpg)
 
  
 
 \# kubectl describe ns test
 
-![img](file:///C:/Users/lanp/AppData/Local/Temp/msohtmlclip1/01/clip_image080.jpg)
+![img](http://image.z5689.com/blog/clip_image080.jpg)
 
  
 
@@ -672,7 +672,7 @@ PV全部绑定成功
 
 \# kubectl get svc -n test
 
-![img](file:///C:/Users/lanp/AppData/Local/Temp/msohtmlclip1/01/clip_image082.jpg)
+![img](http://image.z5689.com/blog/clip_image082.jpg)
 
  
 
@@ -680,17 +680,17 @@ PV全部绑定成功
 
  
 
-![img](file:///C:/Users/lanp/AppData/Local/Temp/msohtmlclip1/01/clip_image084.jpg)
+![img](http://image.z5689.com/blog/clip_image084.jpg)
 
  
 
  
 
-![img](file:///C:/Users/lanp/AppData/Local/Temp/msohtmlclip1/01/clip_image086.jpg)
+![img](http://image.z5689.com/blog/clip_image086.jpg)
 
  
 
-![img](file:///C:/Users/lanp/AppData/Local/Temp/msohtmlclip1/01/clip_image088.jpg)
+![img](http://image.z5689.com/blog/clip_image088.jpg)
 
  
 
