@@ -1,10 +1,8 @@
-
-
-## **KubeSphere的备份恢复（**Multinode模式）
+##  KubeSphere的备份恢复（Multinode模式）
 
  
 
-#### 环境准备
+### 环境准备
 
 ![image-20210205150424480](http://image.z5689.com/blog/image-20210205150424480.png)
 
@@ -20,9 +18,9 @@ Centos7环境
 
  
 
-#### 安装步骤
+### 安装步骤
 
-**1.**   **配置存储端minio主机**
+####  1.配置存储端minio主机
 
 安装docker
 
@@ -74,7 +72,7 @@ Centos7环境
 
  
 
-**2.** **集群A，集群B部署Velero组件**
+####  2.集群A，集群B部署Velero组件
 
 集群A部署velero
 
@@ -152,9 +150,9 @@ EOF
 
  
 
-集群B部署velero也和上述集群A部署velero一样
+**集群B部署velero也和上述集群A部署velero一样**
 
-注意：集群B需要提前安装好kubesphere所需依赖组件
+**注意：集群B需要提前安装好kubesphere所需依赖组件**
 
 ```
 # yum install curl openssl ebtables socat ipset conntrack yum-utils -y
@@ -162,7 +160,7 @@ EOF
 
 
 
-**3.** **部署验证服务（wordpress）**
+####  3. **部署验证服务（wordpress）**
 
 为了验证数据的有效性部署1个test工作空间和对应的名称空间
 
@@ -246,7 +244,7 @@ EOF
 
  
 
-**4.** **集群A备份KubeSphere集群**
+####  4.集群A备份KubeSphere集群
 
 登录集群A master端，查看master端的污点
 
@@ -284,7 +282,7 @@ EOF
 
  
 
-标记kubesphere-monitoring-system名称空间的PV
+**注释kubesphere-monitoring-system名称空间的PV**
 
 ```
 # kubectl describe pod prometheus-k8s-0 -n  kubesphere-monitoring-system
@@ -352,7 +350,7 @@ Volumes:
   Optional:  false
 ```
 
-不需要标记token，在pod生成之后，会重新生成token
+不需要注释token，在pod生成之后，会重新生成token
 
 ```
 # kubectl -n kubesphere-monitoring-system annotate pod prometheus-k8s-0 backup.velero.io/backup-volumes=prometheus-k8s-db,config,tls-assets,config-out,prometheus-k8s-rulefiles-0,secret-kube-etcd-client-certs
@@ -360,7 +358,7 @@ Volumes:
 
 
 
-标记test名称空间的PV
+**注释test名称空间的PV**
 
 ```
 # kubectl describe pod  wordpress-mariadb-0  -n  test
@@ -434,7 +432,7 @@ Volumes:
 
  
 
-标记kubesphere-system名称空间的PV
+**注释kubesphere-system名称空间的PV**
 
 ```
 # kubectl describe pod openldap-0 -n  kubesphere-system
@@ -504,9 +502,9 @@ Volumes:
 
 
 
-含有pv数据的pod都标记完成
+**含有pv数据的pod都注释完成**
 
-备份名称空间（kube-system，kubesphere-controls-system，kubesphere-monitoring-system，kubesphere-system，test）
+**备份名称空间（kube-system，kubesphere-controls-system，kubesphere-monitoring-system，kubesphere-system，test）**
 
 ```
 # velero backup create kube-system-bak --include-namespaces kube-system
@@ -536,7 +534,7 @@ minio已经生成备份数据
 
  
 
-**5.** **集群B还原KubeSphere集群**
+####  5.集群B还原KubeSphere集群
 
 登入集群B  master端
 
@@ -652,7 +650,7 @@ PV全部绑定成功
 
  
 
-**6.**   **验证服务**
+####  6. **验证服务**
 
 登录集群B kubesphere，验证服务
 
