@@ -1175,5 +1175,5 @@ hosts文件加入域名映射
 
 ![image-20201015213005733](https://i.loli.net/2020/10/16/T15MmWD7zs3JNuI.png)
 
-设置成功 test1 test2
+设置成功
 
