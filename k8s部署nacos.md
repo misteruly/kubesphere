@@ -114,66 +114,83 @@
 
 ### 三  部署服务注册nacos
 
-#### 1. 环境准备
-
-​     安装maven
-
-```
-yum install maven -y
-```
-
- ![image-20210428164205077](https://image.z5689.com/blog/image-20210428164205077.png)              
-
- 	
+#### 1. 环境准备  
 
 ​	下载示例包
 
 ```
-git clone  https://gitee.com/misteruly/spring-cloud_-gate-way.git
+git clone  https://gitee.com/misteruly/gateway.git
+git clone  https://gitee.com/misteruly/service_one.git
+git clone  https://gitee.com/misteruly/service_two.git
 ```
 
-![image-20210428164436321](https://image.z5689.com/blog/image-20210428164436321.png)
+![image-20210518093110921](https://image.z5689.com/blog/image-20210518093110921.png)
 
 修改gateway，service_one，service_two配置文件application.yml
 
 ![image-20210512141346567](https://image.z5689.com/blog/image-20210512141346567.png)
 
-修改成你自己的nacos地址，这里是k8s跨名称空间连接服务，格式：服务名.名称空间.svc.cluster.local:端口号
+修改成你自己的nacos地址并上传到自己的git，这里是k8s跨名称空间连接服务，格式：服务名.名称空间.svc.cluster.local:端口号
 
 
 
 #### 2. 服务打包镜像并上传镜像
 
-​	进入目录并打包
+​	使用kubesphere的S2I功能，需要在kubesphere启用DevOps组件和Logging组件，请参考文档：https://kubesphere.com.cn/docs/quick-start/enable-pluggable-components/
 
-```
-cd spring-cloud_-gate-way/SpringCloud_gateway/ && mvn clean package
-```
+​	新建一个项目build-images，然后进入这个项目
 
-![image-20210428164712653](https://image.z5689.com/blog/image-20210428164712653.png)
+![image-20210518094032815](https://image.z5689.com/blog/image-20210518094032815.png)
 
-​	进入gateway目录并打包gateway镜像
+![image-20210518094101848](https://image.z5689.com/blog/image-20210518094101848.png)
 
-```
-cd gateway/
-docker build -t  misteruly/gateway:v1  .
-```
+创建一个密钥
 
-![image-20210512140515725](https://image.z5689.com/blog/image-20210512140515725.png)
+![image-20210518094500572](https://image.z5689.com/blog/image-20210518094500572.png)
 
-![image-20210512140324642](https://image.z5689.com/blog/image-20210512140324642.png)
+取名dockerhub-id
 
-​	上传镜像到自己的dockerhub库
+![image-20210518094535777](https://image.z5689.com/blog/image-20210518094535777.png)
 
-```
-docker push misteruly/gateway:v1
-```
+类型选择镜像库密钥
 
-![image-20210512140755754](https://image.z5689.com/blog/image-20210512140755754.png)
+![image-20210518094652979](https://image.z5689.com/blog/image-20210518094652979.png)
+
+填写你自己的dockerhub的账号和密码
+
+![image-20210518094840227](https://image.z5689.com/blog/image-20210518094840227.png)
+
+创建成功
+
+![image-20210518095005435](https://image.z5689.com/blog/image-20210518095005435.png)
+
+
+
+创建一个构建镜像，源代码选择java，然后下一步
+
+![image-20210518095109970](https://image.z5689.com/blog/image-20210518095109970.png)
+
+![image-20210518094249346](https://image.z5689.com/blog/image-20210518094249346.png)
+
+填入自己的代码链接和分支，镜像名称和版本，以及刚才创建自己的dockerhub-id
+
+![image-20210518095338388](https://image.z5689.com/blog/image-20210518095338388.png)
+
+正在构建，需要等待一段时间
+
+![image-20210518095619198](https://image.z5689.com/blog/image-20210518095619198.png)
+
+进入查看构建日志，已构建成功
+
+![image-20210518095753432](https://image.z5689.com/blog/image-20210518095753432.png)
+
+
+
+​	已经上传镜像到自己的dockerhub库
 
 ![image-20210512140903848](https://image.z5689.com/blog/image-20210512140903848.png)
 
-以相同的方式打包service_one和service_two服务的镜像，并上传镜像。
+以相同的方式把service_one和service_two服务构建镜像，并上传镜像。
 
 ![image-20210512143155784](https://image.z5689.com/blog/image-20210512143155784.png)
 
@@ -252,9 +269,7 @@ gateway服务访问的端口是：nodeip:31698
 
 ![image-20210512163746905](https://image.z5689.com/blog/image-20210512163746905.png)
 
-参考文档：https://blog.csdn.net/weixin_43517302/article/details/109701269?spm=1001.2014.3001.5501
-
-服务包链接：https://gitee.com/misteruly/spring-cloud_-gate-way.git
+参考文档：https://blog.csdn.net/weixin_43517302/article/details/109701269?spm=1001.2014.3001.5501	
 
 #### 小结：Nacos 致力于帮助您发现、配置和管理微服务。Nacos 提供了一组简单易用的特性集，帮助您快速实现动态服务发现、服务配置、服务元数据及流量管理。本实例使用Nacos 实现路由转发功能和服务注册功能，适用于SpringCloud服务框架。
 
